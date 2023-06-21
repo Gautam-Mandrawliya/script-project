@@ -5,33 +5,27 @@ function Install() {
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; 
 then
-	    echo -e "\033[0;31m Docker is not installed. Installing Docker..."
+	    echo  "Docker is not installed. Installing Docker..."
           # Docker installation and start and enable docker service
 	    yum update -y
 	    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
 	    yum install -y docker-ce
 	    systemctl start docker
 	    systemctl enable docker
-	    echo -e "\033[0;32m Docker is successfully installed and service start and enable at boot time"
-else
-       	    echo -e "\033[0;33m Docker is allready installed."	
-
+	    echo  "Docker is successfully installed and service start and enable at boot time"
 fi
 
 # Check if Docker Compose is installed
 if ! command -v docker compose &> /dev/null; 
 then
-	    echo -e "\033[0;31m Docker Compose is not installed. Installing Docker Compose..."
+	    echo "Docker Compose is not installed. Installing Docker Compose..."
 	  # Docker Compose Installation
 	    yum install docker-compose-plugin -y
     	    docker compose version
-	    echo -e "\033[0;32m Docker Compse is successfully installed."
-else
-	    echo -e "\033[0;33m Docker-Compose is allready installed."
+	    echo "Docker Compse is successfully installed."
 fi
 
-echo -e "\033[0;33m Creating WordPress site: example.com"
-
+echo "Creating WordPress site: example.com"
 # Create docker-compose.yml file
 cat > docker-compose.yml << EOF
 version: '3.9'
@@ -85,31 +79,31 @@ EOF
 function Status() {
 	until $(curl --output /dev/null --silent --head --fail  http://example.com);
 	do
-		echo -e "\033[0;33m Waiting for the site to be up..."
+		echo "Waiting for the site to be up..."
 		sleep 5
 	done
-		echo -e "\033[0;32m The site example.com is up and healthy."	
-		echo -e "\033[0;32m Please open http://example.com in your browser."
+		echo "The site example.com is up and healthy."	
+		echo "Please open http://example.com in your browser."
 }
 
 function Start() {
 # Additional subcommand: Start the site
 	docker compose start
 	Status
-	echo -e "\033[0;32m The site example.com has been started."
+	echo "The site example.com has been started."
 }
 
 function Stop(){
 # Additional subcommand: Stop the site
 	docker compose stop
-	echo -e "\033[0;32m The site example.com has been stopped."
+	echo "The site example.com has been stopped."
 }
 
 function Remove() {
 # Additional subcommand: Delete the site
 	docker compose down --volumes
 	sudo sed -i "/example.com/d" /etc/hosts
-	echo -e "\033[0;32m The site example.com  has been deleted from the /etc/hosts file."
+	echo "The site example.com  has been deleted from the /etc/hosts file."
 #	rm -rvf docker-compose.yml wp-content
 }
 
