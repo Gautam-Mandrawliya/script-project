@@ -1,47 +1,65 @@
-# **Scripts for WordPress Site**
-Designed script - **script.sh**, and the script has been tested on Amazon AMI Linux, RHEL-9 Linux, and locally on CentOS-8 machines. The script execution results were successful.
+# WordPress Dockerized Setup
 
-**If installing Docker in Amazon Linux AMI and add these commands in the script file and remove or comment on the commands for the process of RHEL-9 and CentOS-8 Linux machine.**
+This script automates the deployment of a WordPress site using Docker and Docker Compose. It installs Docker and Docker Compose if not already installed, creates a `docker-compose.yml` file for the WordPress site, and provides commands to manage the deployment.
 
-yum install -y docker
-            
-**Install Docker Compose**
+## Prerequisites
 
-DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+- CentOS/RHEL environment
+- Internet connectivity for package installation
 
-mkdir -p $DOCKER_CONFIG/cli-plugins
+## Installation and Usage
 
-curl -SL https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/wordpress-dockerized.git
+   cd wordpress-dockerized
+   ```
 
-chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+2. **Run the Script:**
+   - To install and deploy the WordPress site, run the script without any arguments:
+     ```bash
+     ./deploy-wordpress.sh
+     ```
+   - Follow on-screen instructions for further options.
 
+3. **Access WordPress:**
+   - Once the script completes, open `http://example.com` in your browser to access the WordPress site.
 
-                  
-# **Executing Process of the Script:**
+## Script Commands
 
-# **script.sh**
-1. Download the script and assign execute permission to the script file.
+- **Start the Site:**
+  ```bash
+  ./deploy-wordpress.sh start
+  ```
 
-  chmod +x script.sh
-  
-2. Install the script.
+- **Stop the Site:**
+  ```bash
+  ./deploy-wordpress.sh stop
+  ```
 
-  ./script.sh
-  
-3. Open wesite on web-browsor like http://example.com
+- **Delete the Site:**
+  ```bash
+  ./deploy-wordpress.sh delete
+  ```
 
-4. Sub-commands:
+## Note
 
-i. Stop the program and website.
+- The script uses `example.com` as the domain. Make sure this domain is accessible in your environment.
+- Ensure that Docker and Docker Compose are not conflicting with existing installations.
 
-  ./script stop
-  
-ii. Start the program or website.
+## Troubleshooting
 
-  ./script start
-  
-iii. Remove/Delete the program or website.
+- If the site is not accessible immediately after deployment, wait a few moments and retry. The script checks for site availability during the `Status` phase.
+- Check the script output for any errors or warnings.
 
-  ./script.sh delete
-  
-**Thank you**
+## Cleanup
+
+To remove the deployed WordPress site and associated configurations, run:
+
+```bash
+./deploy-wordpress.sh delete
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
