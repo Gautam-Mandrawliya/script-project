@@ -11,8 +11,8 @@ This script automates the deployment of a WordPress site using Docker and Docker
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/wordpress-dockerized.git
-   cd wordpress-dockerized
+   git clone https://github.com/Gautam-Mandrawliya/script-project.git
+   cd script-project
    ```
 
 2. **Run the Script:**
