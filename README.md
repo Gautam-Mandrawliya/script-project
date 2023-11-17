@@ -6,46 +6,47 @@ This script automates the deployment of a WordPress site using Docker and Docker
 
 - CentOS/RHEL environment
 - Internet connectivity for package installation
+- It also works on AWS EC2 Instances
 
 ## Installation and Usage
 
-1. **Clone the Repository:**
+1. **Clone the Repository**
    ```bash
    git clone https://github.com/Gautam-Mandrawliya/script-project.git
    cd script-project
    ```
 
-2. **Run the Script:**
+2. **Run the Script**
    - To install and deploy the WordPress site, run the script without any arguments:
      ```bash
-     ./deploy-wordpress.sh
+     ./script.sh
      ```
    - Follow on-screen instructions for further options.
 
-3. **Access WordPress:**
+3. **Access WordPress**
    - Once the script completes, open `http://example.com` in your browser to access the WordPress site.
 
 ## Script Commands
 
-- **Start the Site:**
+- **Start the Site**
   ```bash
-  ./deploy-wordpress.sh start
+  ./script.sh start
   ```
 
-- **Stop the Site:**
+- **Stop the Site**
   ```bash
-  ./deploy-wordpress.sh stop
+  ./script.sh stop
   ```
 
-- **Delete the Site:**
+- **Delete the Site**
   ```bash
-  ./deploy-wordpress.sh delete
+  ./script.sh delete
   ```
 
 ## Note
 
 - The script uses `example.com` as the domain. Make sure this domain is accessible in your environment.
-- Ensure that Docker and Docker Compose are not conflicting with existing installations.
+- Ensure that Docker and Docker Compose do not conflict with existing installations.
 
 ## Troubleshooting
 
@@ -54,10 +55,10 @@ This script automates the deployment of a WordPress site using Docker and Docker
 
 ## Cleanup
 
-To remove the deployed WordPress site and associated configurations, run:
+To remove the deployed WordPress site and associated configurations, run the following:
 
 ```bash
-./deploy-wordpress.sh delete
+./script.sh delete
 ```
 
 ## License
