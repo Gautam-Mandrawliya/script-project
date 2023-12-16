@@ -1,12 +1,12 @@
 # WordPress Dockerized Setup
 
-This script automates the deployment of a WordPress site using Docker and Docker Compose. It installs Docker and Docker Compose if not already installed, creates a `docker-compose.yml` file for the WordPress site, and provides commands to manage the deployment.
+This script automates the deployment of a WordPress site using Docker and Docker Compose. It installs Docker and Docker Compose if not already installed, and provides commands to manage the deployment.
 
 ## Prerequisites
 
-- CentOS/RHEL environment
+- CentOS/RHEL physical machine and Amazon Linux VM environment
+- There are two scripts: `script.sh` for CentOS/RHEL physical machine and `amazon-linux.sh` for Amazon Linux VM
 - Internet connectivity for package installation
-- It also works on AWS EC2 Instances
 
 ## Installation and Usage
 
@@ -17,10 +17,17 @@ This script automates the deployment of a WordPress site using Docker and Docker
    ```
 
 2. **Run the Script**
-   - To install and deploy the WordPress site, run the script without any arguments:
+   - If CentOS/RHEL physical machine. To install and deploy the WordPress site, run the script without any arguments:
      ```bash
      ./script.sh
      ```
+
+   - This script also run in Amazon RedHat-9 VM but you need some modification or troubleshooting.
+     
+    - If Amazon Linux VM. To install and deploy the WordPress site, run the script without any arguments:
+     ```bash
+     ./amazon-linux.sh
+     ``` 
    - Follow on-screen instructions for further options.
 
 3. **Access WordPress**
@@ -32,15 +39,33 @@ This script automates the deployment of a WordPress site using Docker and Docker
   ```bash
   ./script.sh start
   ```
+  
+      OR
+    
+   ```bash
+  ./amazon-linux.sh start
+  ```
 
 - **Stop the Site**
   ```bash
   ./script.sh stop
+  
+  ```
+     OR
+    
+   ```bash
+  ./amazon-linux.sh stop
   ```
 
 - **Delete the Site**
   ```bash
   ./script.sh delete
+  ```
+
+     OR
+    
+   ```bash
+  ./amazon-linux.sh delete
   ```
 
 ## Note
@@ -59,6 +84,11 @@ To remove the deployed WordPress site and associated configurations, run the fol
 
 ```bash
 ./script.sh delete
+```
+    OR
+    
+```bash
+  ./amazon-linux.sh delete
 ```
 
 ## License
