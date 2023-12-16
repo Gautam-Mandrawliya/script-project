@@ -10,7 +10,7 @@ then
             sudo yum update -y
             sudo amazon-linux-extras install docker
             sudo yum install -y docker
-            sudo usermod -a -G docker $USER
+            # sudo usermod -a -G docker $USER
             sudo systemctl enable --now docker
             echo  "Docker is successfully install, configured and services start or enabled at boot time"
 fi
@@ -45,7 +45,7 @@ function Status() {
                 echo "Waiting for the site to be up..."
                 sleep 5
         done
-                echo "The site example.com is up and healthy. Please open http://example.com in your browser."
+                echo "The site example.com is up and healthy. Please open http://private-ip-address in your browser."
 }
 
 function Start() {
