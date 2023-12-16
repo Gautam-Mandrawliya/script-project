@@ -45,7 +45,7 @@ function Status() {
                 echo "Waiting for the site to be up..."
                 sleep 5
         done
-                echo "The site example.com is up and healthy. Please open http://private-ip-address in your browser."
+                echo "The site example.com is up and healthy. Please open http://public-ip-address in your browser."
 }
 
 function Start() {
