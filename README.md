@@ -24,7 +24,7 @@ This script automates the deployment of a WordPress site using Docker and Docker
 
    - This script also run in Amazon RedHat-9 VM but you need some modification or troubleshooting.
      
-    - If Amazon Linux VM. To install and deploy the WordPress site, run the script without any arguments:
+   - If Amazon Linux VM. To install and deploy the WordPress site, run the script without any arguments:
      ```bash
      ./amazon-linux.sh
      ``` 
@@ -39,9 +39,8 @@ This script automates the deployment of a WordPress site using Docker and Docker
   ```bash
   ./script.sh start
   ```
-  
-      OR
-    
+        `OR`
+      
    ```bash
   ./amazon-linux.sh start
   ```
@@ -51,9 +50,9 @@ This script automates the deployment of a WordPress site using Docker and Docker
   ./script.sh stop
   
   ```
-     OR
-    
-   ```bash
+         `OR`
+   
+  ```bash
   ./amazon-linux.sh stop
   ```
 
@@ -61,10 +60,9 @@ This script automates the deployment of a WordPress site using Docker and Docker
   ```bash
   ./script.sh delete
   ```
-
-     OR
+         `OR`
     
-   ```bash
+  ```bash
   ./amazon-linux.sh delete
   ```
 
@@ -85,10 +83,10 @@ To remove the deployed WordPress site and associated configurations, run the fol
 ```bash
 ./script.sh delete
 ```
-    OR
+         `OR`
     
 ```bash
-  ./amazon-linux.sh delete
+ ./amazon-linux.sh delete
 ```
 
 ## License
