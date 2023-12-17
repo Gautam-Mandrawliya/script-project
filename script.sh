@@ -12,7 +12,7 @@ then
 	    sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 	    sudo usermod -a -G docker $USER
 	    sudo systemctl enable --now docker
-	    echo  "Docker is successfully install, configured and services start or enabled at boot time"
+	    echo  "Docker is successfully installed, configured and services start or enabled at boot time."
 fi
 
 # Check if Docker Compose is installed
@@ -37,7 +37,7 @@ echo "Creating WordPress site: example.com"
 	sudo firewall-cmd --reload
 
 # Start the containers
-	sudo docker compose up -d
+	docker compose up -d
 	Status
 	sudo docker container ls
 }
@@ -53,20 +53,20 @@ function Status() {
 
 function Start() {
 # Additional subcommand: Start the site
-	sudo docker compose start
+	docker compose start
 	Status
 	echo "The site example.com has been started."
 }
 
 function Stop(){
 # Additional subcommand: Stop the site
-	sudo docker compose stop
+	docker compose stop
 	echo "The site example.com has been stopped."
 }
 
 function Remove() {
 # Additional subcommand: Delete the site
-	sudo docker compose down --volumes
+	docker compose down --volumes
 	sudo sed -i "/example.com/d" /etc/hosts
 	echo "The site example.com  has been deleted from the /etc/hosts file."
 #	rm -rvf docker-compose.yml wp-content
